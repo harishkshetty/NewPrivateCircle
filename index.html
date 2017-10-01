@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Private Circle</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="privatestyle.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="body" style="background-color:lightgray">
+	<div ng-app="myapp" ng-controller="privatecontroller" ng-cloak>
+
+      <div class="row" style="height:100%">
+<!-- Left Side Search Panel Start-->
+             <div class="col-xs-12  col-sm-4 smallpadder search-panel"  >
+
+<div class="col-xs-12 smallpadder" style="width:100%">
+  <div class="col-xs-1 visible-xs smallpadder" style="line-height:40px">
+         <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+  </div>
+          <div class='col-xs-8 col-sm-8 col-md-9 smallpadder' >
+
+               <form class='col-xs-12 col-sm-12 smallpadder'>
+                  <input type="text"  class="textbox" style="margin-top:10px;width:100%;padding-left:10%;background-color:#F8F8FF" name="search" class='col-xs-12 col-sm-12 smallpadder searched' data-ng-model="searcher" placeholder="Search..">
+                  <img class="hidden-xs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-pw-tjbyMmHOfgST2eJroWLD_aUMV0XMtpuPqQ1rJHf-InS8s" id="input_image">
+            </form>
+
+
+        </div>
+        <div  id="showfilter"  class="col-xs-2 col-sm-2 smallpadder" style="position:relative;">
+
+               <i class="fa fa-wifi" aria-hidden="true" style="line-height:40px">Filter</i>
+
+        </div>
+<div class="col-xs-6 col-sm-7 pull-right smallpadder filter" style="background-color:white">
+
+  <div class="col-xs-12 smallpadder" style="padding-left:0% !important">
+<label style="font-weight:bold"><input type="checkbox"  name="Fund"  ng-change="filterchange()"; data-ng-model="all">&nbsp;All</label>
+
+
+      </div>
+      <div class="col-xs-12 smallpadder">
+<label ><input type="checkbox" ng-checked="all" name="Fund"  data-ng-model="search.one" data-ng-true-value="'Fund'"  data-ng-false-value=''>&nbsp;Fund</label>
+
+
+      </div>
+      <div class="col-xs-12 smallpadder">
+<label ><input type="checkbox"  ng-checked="all"  name="Company" data-ng-model="search.two" data-ng-true-value="'company'" data-ng-false-value=''>&nbsp;Company
+</label>
+
+      </div>
+      <div class="col-xs-12  smallpadder">
+
+
+<label><input type="checkbox"  ng-checked="all" name="HNI" data-ng-model="search.three" data-ng-true-value="'HNI'" data-ng-false-value=''>&nbsp;HNI</label>
+
+
+      </div>
+      <div class="col-xs-12" style="border-top:1px solid red;padding-left:0px;width:94%">
+        <div class="col-xs-2" style="padding-left:0px">
+     <i class="fa fa-toggle-on " aria-hidden="true"></i>
+        </div>
+        <div class="col-xs-10" style="padding-left:0px">
+
+      <p > Don't show locked interactions</p>
+   </div>
+    </div>
+
+  </div>
+  <div style="background-color:lightgray">
+
+        <div  class="col-xs-12 col-sm-12  visible-sm visible-md visible-lg"  style="padding-top:15px;" data-ng-repeat="x in Entity |multipleChecks:search|filter:searcher">
+          <div class="col-sm-12 col-xs-12" style="padding-left:0px;border-bottom:1px solid lightgray">
+
+              <div  class="col-xs-2 col-sm-4 col-md-3 col-lg-2" style="text-align:center;padding-top:15px">
+               <img  src="{{x.src}}" style="border-radius:50%;border:1px solid lightgray" width="60px" height="60px">
+             </div>
+              
+
+              <div class="col-xs-10 col-sm-8 col-md-9 col-lg-10" id="list" style="padding-top:10px;padding-right:0px !important">
+        <h4 class="ipad" style="padding-left:10px;" >
+        <span ng-style={'background-color':'{{x.color}}'}>{{x.Type}}</span>
+      </h4>
+        <h4 class="ipad" style="font-weight: bold;position:relative;padding-left:10px"><a id="{{x.Id}}" ng-click="HeadInfo(x.Id)"; >{{x.company}}</a></h4>
+        <h4 class="col-xs-4 ipadad" style="display:inline-block;margin-left:-3%">{{x.Advisor}}</h4>
+          <h4  class="col-xs-8 ipaduse" style="display:inline-block;padding-left:40px;">{{x.User}}</h4>
+          <div class="visible-lg ">
+               <i class="{{x.enve}} font col-xs-4"  style="margin-bottom:15px" aria-hidden="true">{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4 "  style="text-align:right;margin-bottom:15px" aria-hidden="true">{{x.UCount}}</i>
+               <i class="{{x.action}} col-xs-4 "   style="color:skyblue;text-align:right;margin-bottom:15px"aria-hidden="true"></i>
+
+
+               </div>
+        </div>
+
+        <div class="col-xs-12 visible-xs visible-sm visible-md" style="text-align:center">
+
+          <i class="{{x.enve}} font col-xs-4" aria-hidden="true">{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4"  aria-hidden="true">{{x.UCount}}</i>
+               <i class="{{x.action}}  col-xs-4 "  style="color:skyblue"aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+<div  class="col-xs-12 col-sm-12  visible-xs"  style="padding-top:15px;padding-left:10px;padding-right:4px;border:5px solid lightgray;border-bottom:2px solid lightgray;" ng-repeat="x in Entity|multipleChecks:search|filter:searcher">
+
+              <div  class="col-xs-2 smallpadder" style="padding-top:15px;text-align:center">
+               <img  id="radius" src="{{x.src}}" style="border-radius:50%;border:1px solid lightgray" width="40px" height="40px">
+             </div>
+              
+
+              <div class="col-xs-8 smallpadder" id="list" style="padding-top:5px;">
+        <h6 class="ipad" >
+        <span ng-style={'background-color':'{{x.color}}'}>{{x.Type}}</span>
+      </h6>
+        <h6 class="ipad" style="font-weight: bold;position:relative;"><a id="{{x.Id}}"  ng-click="HeadInfoData(x.Id)";>{{x.company}}</a></h6>
+        <h6 class="col-xs-4  smallpadder ipadad" style="display:inline-block;margin-top:-5px;margin-left:-7%">{{x.Advisor}}</h6>
+          <h6 class="col-xs-8  smallpadder ipaduse" style="display:inline-block;padding-left:40px;margin-top:-5px;">{{x.User}}</h6>
+          <div class="visible-sm visible-md visible-lg ipadhide">
+               <i class="{{x.enve}} font col-xs-4" style="align:center" aria-hidden="true">{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4 "  style="text-align:center" aria-hidden="true">{{x.UCount}}</i>
+               <i class="{{x.action}} col-xs-4 "   style="color:skyblue;text-align:center"aria-hidden="true"></i>
+
+
+               </div>
+        </div>
+
+        <div class="col-xs-12  smallpadder visible-xs ipadshow" >
+
+          <i class="{{x.enve}} font col-xs-4 smallpadder" style="padding-left:10% !important" aria-hidden="true"> &nbsp;&nbsp;{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4 smallpadder"  style="padding-left:20% !important" aria-hidden="true">&nbsp;&nbsp;{{x.UCount}}</i>
+               <i class="{{x.action}}  col-xs-4  smallpadder"  style="color:skyblue;padding-left:20% !important; "aria-hidden="true"></i>
+        </div>
+
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+<!-- Left Search Panel End -->
+
+
+
+<!-- Right Search Panel Start -->
+
+
+<div id="container" class="visible-sm visible-md visible-lg" >
+<div class="col-xs-12 col-sm-8 right-panel " id='right-panel'>
+<div class="row" id="details">
+             <div class="col-xs-12 col-sm-1" style="text-align:center;padding-top:15px">
+               <img src="{{data.src}}" style="border-radius:50%;text-align:center;border:1px solid lightgray" width="80px" min-height="80px">
+
+            </div>
+            <div class="col-xs-5 col-sm-4 col-md-4 col-lg-5 mypad" style="padding-left:30px;padding-top:10px">
+            	<h4 style="padding-left: 20px"><span style="background-color:{{data.color}}">{{data.Type}}</span></h4>
+                 <h4 style="padding-left:20px;font-weight:bold">{{data.company}}</h4>
+             
+             </div>
+             <div class="col-xs-4 col-sm-5 col-md-5 " style="padding-top:10px;">
+              <div class="col-xs-12 col-sm-12" style="border-right:1px solid lightgray;margin-bottom:10px">
+              <h5  class="col-xs-12 col-sm-12 " >Members</h5>
+              <h4  class="col-xs-6 col-sm-5 mob" style="font-weight:normal;margin-top:0%">{{data.Advisor}}</h4>
+               <h4  class="col-xs-6 col-sm-5 mobile" style="font-weight:normal;margin-top:0%">{{data.User}}</h4>
+               <p  class="col-xs-6 col-sm-5">+{{data.Adcount}} <i class="fa fa-chevron-down" aria-hidden="true"></i></p>
+               <p  class="col-xs-6 col-sm-5">+{{data.Userc}}<i class="fa fa-chevron-down" aria-hidden="true"></i></p>
+               </div>
+             </div>
+
+             
+             <div class="col-xs-12 col-sm-1 col-md-1 visible-sm visible-md visible-lg downarrow" id="pro" style="text-align:center;padding-left:0px">
+             	<div  class="col-xs-12 col-sm-12 " style="border-radius:50%;text-align:right;border:1px solid lightgray;width:40px;height:25px;margin-top:40px;"><i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+             </div>
+
+             
+             </div>
+
+
+
+</div>
+<div class="col-xs-12 col-sm-1 visible-xs downarrow" id="circle" style="text-align:center;position:relative;margin:0 auto;">
+         <div class='col-xs-6'></div>
+
+             	<div  class="col-xs-3 col-sm-12 " style="border-radius:50%;border:1px solid lightgray;width:40px;height:25px;margin-top:40px;"><i class="fa fa-chevron-down" style="margin:0 auto;" aria-hidden="true"></i>
+
+             </div>
+
+             
+             </div>
+
+</div>
+<div  id="box" style="background-color:white;border-top:1px solid lightgray;">
+        <div  id="mymessage" class="col-xs-12 col-sm-8  pull-right right-panel" style="margin-top:5px;">
+                <div class='col-xs-12 col-sm-12' style="margin-top:5px" >
+
+                    <form class='col-xs-12 col-sm-12'>
+
+                        <input type="text" name="search" class='col-xs-12 col-sm-12 message' ng-model="message" placeholder="Search..">
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-pw-tjbyMmHOfgST2eJroWLD_aUMV0XMtpuPqQ1rJHf-InS8s" id="input_img">
+                   </form>
+
+
+               </div>
+
+<div class="row color "   ng-repeat="msg in mesdata|filter:message" >
+
+              <div  class="col-xs-12 col-sm-1 col-lg-1" style="text-align:center;padding-top:10px;">
+
+                     <img src="{{msg.src}}" style="border-radius:50%;border:1px solid lightgray" width="50px" height="50px">
+             </div>
+<div  class="col-xs-12 col-sm-11 col-md-11" style="border-bottom:1px solid lightgray;width:86.666%;">
+    <div class="col-xs-12 col-sm-6 col-lg-6
+     padder smallpadder marginer" style="padding-top:10px;margin-left:-4%">
+
+         <h4 style="font-weight:bold;">{{msg.user}}</h4>
+
+            <div class='col-xs-12 col-sm-12 marginers' style="margin-left:-4%">
+
+               <h5>{{msg.mes}}</h5>
+
+           </div>
+
+    </div>
+
+          <div class="col-xs-12 col-sm-3 col-lg-2 pull-right" style="padding-top:10px;margin-right:-5%">
+
+               <p style="text-align:center;padding-right:5px" >{{msg.Time}}</p>
+
+</div>
+               <div class="col-xs-12 col-sm-3 col-lg-2 pull-right properpad" style="padding-top:10px;margin-right:-5%">
+                   <p  style="text-align:right;padding-right:5px">{{msg.created}}</p>
+
+               </div>
+
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-12  type"  id="minsize" style="margin-top:22.4%;border:1px solid lightgray;margin-bottom:4.2%;background-color: white">
+	    <div class="row " style="margin-top:10px;">
+
+              <div class="col-xs-2 col-sm-1" style="padding-top:5px;padding-bottom: 5px">
+
+               <img src="{{mesdata[2].src}}" style="border-radius:50%;border:1px solid lightgray" width="50px" height="50px">
+
+               </div>
+                      <div class="col-xs-8 col-sm-9 padder" style="padding-top:15px">
+
+                      <p style="border-right:1px solid lightgray;">Start typing here to reply</p>
+
+                      </div>
+
+                            <div class="col-xs-2 col-sm-2" style="padding-top:10px">
+
+                                 <i class="fa fa-telegram fa-2x"  style="color:lightblue" aria-hidden="true"></i>
+
+                            </div>
+
+             </div>
+
+   </div>
+</div>
+</div>
+
+<!-- Right Serach Panel End -->
+
+
+</div>
+</div>
+</div>
+<script src="private.js"></script>
+</body>
+</html>

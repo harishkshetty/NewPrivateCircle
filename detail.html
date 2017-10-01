@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="detail.css">
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="private.js"></script>
+
+</head>
+<body style="background-color:lightgray">
+
+<div id="container" ng-app="myapp"  ng-controller="privatecontroller">
+  <div class="col-xs-12" style="background-color:lightblue">
+<div class="col-xs-1" ng-click="back();" style="margin-top:2%;padding-top:0px;padding-left:0px;">
+ <i class="fa fa-arrow-left"  style="color:white;aria-hidden="true"></i>
+</div>
+<div class="col-xs-6" style="padding-left:0px;">
+  <h5 style="color:white">Messages</h5>
+</div>
+
+<div class="col-xs-2 pull-right" style="color:white;margin-top:2%;padding-right:0px;text-align:right">
+  <i class="fa fa-search" aria-hidden="true"></i>
+
+</div>
+<div class="col-xs-2 pull-right" style="margin-top:2%;padding-right:0px;text-align:right">
+<i class="fa fa-user-o" style="color:white";aria-hidden="true"></i>
+
+</div>
+
+
+  </div>
+
+<div style="border:5px solid lightgray;">
+<div  id="box" style="background-color:white;">
+        <div  id="mymessage" class="col-xs-12  right-panel" style="margin-top:10px" >
+                <div class='row' style="margin-top:5px;background-color: white" >
+                   <h5 style="padding-left: 5%;color:lightblue;">Meeting Schedule</h5>
+<!--                     <form class='col-xs-12 col-sm-12'>
+
+                        <input type="text" name="search" class='col-xs-12 col-sm-12 message' ng-model="message" placeholder="Search..">
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-pw-tjbyMmHOfgST2eJroWLD_aUMV0XMtpuPqQ1rJHf-InS8s" id="input_img">
+                   </form>
+ -->
+                    <div  style="border-bottom:0.1px solid lightgray;margin:0 auto;width:90%">
+                      
+                    </div>
+               </div>
+
+<div class="row color" style="background-color:white"  ng-repeat="msg in mesdata|filter:message">
+
+              <div  class="col-xs-3" style="text-align:center;padding-top:10px;margin-left:-1%">
+
+                     <img src="{{msg.src}}" style="border-radius:50%;border:1px solid lightgray" width="50px" height="50px">
+             </div>
+
+    <div class="col-xs-4 mypadding" style="position:relative;margin-top:10px;left:-8%">
+
+         <h4 style="font-weight:bold;padding-left:15px">{{msg.user}}</h4>
+
+            
+
+    </div>
+
+          <div class="col-xs-5 col-sm-3 col-lg-2"  style="position:relative;margin-top:6%">
+
+               <p style="text-align:right;padding-right:5px" >{{msg.created}}</p>
+
+</div>
+            
+            <div class='col-xs-12 col-sm-12'>
+
+               <h5>{{msg.mes}}</h5>
+
+           </div>   
+                    <div  style="border-bottom:1px solid lightgray;margin:0 auto;width:90%">
+                      
+                    </div>
+
+</div>
+
+
+</div>
+
+<div class="col-xs-12  type"  id="minsize" style="border:1px solid lightgray;background-color: white;margin-top:10px;">
+      <div class="row "  style="margin-bottom:-2%">
+
+              <div class="col-xs-2 " style="padding-top:20px">
+
+               <img src="{{mesdata[2].src}}" style="border-radius:50%;border:1px solid lightgray" width="50px" height="50px">
+
+               </div>
+                      <div class="col-xs-8 padder" style="padding-top:10px">
+
+                      <p style="line-height:70px;padding-left:5px;border-right:1px solid lightgray;">Start typing here to reply</p>
+
+                      </div>
+
+                            <div class="col-xs-2 ">
+
+                                 <i class="fa fa-telegram fa-2x"  style="line-height:80px;margin-left:-10px;color:lightblue" aria-hidden="true"></i>
+
+                            </div>
+
+             </div>
+
+   </div>
+</div>
+</div>
+</div>
+</body>
+</html>

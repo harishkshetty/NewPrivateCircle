@@ -1,0 +1,122 @@
+	    <div class="row" style="height:100%">
+<!-- Left Side Search Panel Start-->
+             <div class="col-xs-12  col-sm-4 smallpadder search-panel"  >
+
+<di
+v class="col-xs-12 smallpadder" style="width:100%">
+	<div class="col-xs-1 visible-xs smallpadder" style="line-height:40px">
+         <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+	</div>
+	        <div class='col-xs-8 col-sm-10 smallpadder'  >
+
+               <form class='col-xs-12 col-sm-12 smallpadder'>
+                  <input type="text" name="search" class='col-xs-12 col-sm-12 smallpadder searched' data-ng-model="search" placeholder="Search..">
+                  <img class="hidden-xs" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-pw-tjbyMmHOfgST2eJroWLD_aUMV0XMtpuPqQ1rJHf-InS8s" id="input_image">
+            </form>
+
+
+        </div>
+        <div class="col-xs-2 col-sm-2 smallpadder" style="position:relative;">
+
+               <i class="fa fa-wifi" aria-hidden="true" style="line-height:40px">Filter</i>
+
+        </div>
+<div class="col-xs-5 pull-right smallpadder" style="border:2px solid red;position: absolute;left:58%">
+
+	<div class="col-xs-12 smallpadder">
+<label >All:<input type="checkbox"  name="Fund" data-ng-model="all"></label>
+
+
+      </div>
+      <div class="col-xs-12 smallpadder">
+<label >Fund:<input type="checkbox" ng-checked="all" name="Fund" data-ng-model="searchtype1" data-ng-true-value="'Fund'"  data-ng-false-value=''></label>
+
+
+      </div>
+      <div class="col-xs-12 smallpadder">
+<label >Company:<input type="checkbox"  ng-checked="all"  name="Company" data-ng-model="searchtype2" data-ng-true-value="'company'" data-ng-false-value=''>
+</label>
+
+      </div>
+      <div class="col-xs-12  smallpadder">
+
+
+<label>HNI:<input type="checkbox"  ng-checked="all" name="HNI" data-ng-model="searchtype3" data-ng-true-value="'HNI'" data-ng-false-value=''></label>
+
+
+      </div>
+  </div>
+        <div  class="col-xs-12 col-sm-12  visible-sm visible-md visible-lg"  style="padding-top:15px;" data-ng-repeat="x in Entity |filter:searchtype1 |filter:searchtype2 |filter:searchtype3 |filter:search">
+          <div class="col-sm-12 col-xs-12">
+
+              <div  class="col-xs-4" style="text-align:center;padding-top:15px">
+               <img  src="{{x.src}}" style="border-radius:50%;border:1px solid lightgray" width="60px" height="60px">
+             </div>
+              
+
+              <div class="col-xs-8" id="list" style="padding-top:10px;">
+				<h4 class="ipad" style="padding-left:10px;" >
+				<span ng-style={'background-color':'{{x.color}}'}>{{x.Type}}</span>
+			</h4>
+				<h4 class="ipad" style="font-weight: bold;position:relative;padding-left:10px"><a id="{{x.Id}}" ng-click="HeadInfo(x.Id)"; >{{x.company}}</a></h4>
+				<h4 class="col-xs-4 ipadad" style="display:inline-block;">{{x.Advisor}}</h4>
+			    <h4  class="col-xs-8 ipaduse" style="display:inline-block;padding-left:40px;">{{x.User}}</h4>
+			    <div class="visible-sm  visible-lg ">
+               <i class="{{x.enve}} font col-xs-4" style="align:center" aria-hidden="true">{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4 "  style="text-align:center" aria-hidden="true">{{x.UCount}}</i>
+               <i class="{{x.action}} col-xs-4 "   style="color:skyblue;text-align:center"aria-hidden="true"></i>
+
+
+               </div>
+			  </div>
+
+			  <div class="col-xs-12 visible-xs visible-md" style="text-align:center">
+
+			  	<i class="{{x.enve}} font col-xs-4" aria-hidden="true">{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4"  aria-hidden="true">{{x.UCount}}</i>
+               <i class="{{x.action}}  col-xs-4 "  style="color:skyblue"aria-hidden="true"></i>
+			  </div>
+		    <div style="border-bottom:1px solid lightgray"></div>
+		</div>
+</div>
+
+    <div  class="col-xs-12 col-sm-12 smallpadder visible-xs"  style="padding-top:15px;" ng-repeat="x in Entity|filter : search">
+<div  style="border-bottom:5px  solid lightgray">
+
+              <div  class="col-xs-3 smallpadder" style="padding-top:15px;text-align:center">
+               <img  id="radius" src="{{x.src}}" style="border-radius:50%;border:1px solid lightgray" width="40px" height="40px">
+             </div>
+              
+
+              <div class="col-xs-8 smallpadder" id="list" style="padding-top:5px;">
+				<h6 class="ipad" >
+				<span ng-style={'background-color':'{{x.color}}'}>{{x.Type}}</span>
+			</h6>
+				<h6 class="ipad" style="font-weight: bold;position:relative;"><a id="{{x.Id}}"  ng-click="HeadInfoData(x.Id)";>{{x.company}}</a></h6>
+				<h6 class="col-xs-4  smallpadder ipadad" style="display:inline-block;margin-top:-5px;">{{x.Advisor}}</h6>
+			    <h6 class="col-xs-8  smallpadder ipaduse" style="display:inline-block;padding-left:40px;margin-top:-5px;">{{x.User}}</h6>
+			    <div class="visible-sm visible-md visible-lg ipadhide">
+               <i class="{{x.enve}} font col-xs-4" style="align:center" aria-hidden="true">{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4 "  style="text-align:center" aria-hidden="true">{{x.UCount}}</i>
+               <i class="{{x.action}} col-xs-4 "   style="color:skyblue;text-align:center"aria-hidden="true"></i>
+
+
+               </div>
+			  </div>
+
+			  <div class="col-xs-12  smallpadder visible-xs ipadshow" style="text-align:center">
+
+			  	<i class="{{x.enve}} font col-xs-4 smallpadder" aria-hidden="true"> &nbsp;&nbsp;{{x.Mescount}}</i>
+                <i class="{{x.user}} font col-xs-4 smallpadder"  aria-hidden="true">&nbsp;&nbsp;{{x.UCount}}</i>
+               <i class="{{x.action}}  col-xs-4  smallpadder"  style="color:skyblue"aria-hidden="true"></i>
+			  </div>
+		</div>
+
+</div>
+
+
+
+</div>
+
+<!-- Left Search Panel End -->

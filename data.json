@@ -1,0 +1,13 @@
+{
+	"info":[
+{"Id":0,"Type":"Fund","src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ3Q2qjZ05rdYOtpQ2meI9Fzu6kbR9DpffhazRp_ON0psNVIS7PA","company":"Cms Infoystems Limited","Advisor":"Rohith","User":"John(You)","Mescount":4,"UCount":8,"user":"fa fa-user","enve":"fa fa-envelope","action":"fa fa-plus","Adcount":6,"Userc":3,"color":"lightgray"},
+{"Id":1,"Type":"Company","src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbFdEbBVo5zCWf6vi7iBrNuxjKdklv91nB6NAFZaGXMldN3yl2","company":"Cms Infoystems Limited","Advisor":"Rohith","User":"Angelina","Mescount":4,"UCount":8,"user":"fa fa-user","enve":"fa fa-envelope","action":"fa fa-lock","Adcount":4,"Userc":7,"color":"orange"},	
+{"Id":2,"Type":"HNI","src":"http://img.freepik.com/free-vector/pixel-n-letter-logo_1103-910.jpg?size=338&ext=jpg","company":"Cms Infoystems Limited","Advisor":"Rohith","User":"Bradd ","Mescount":4,"UCount":8,"user":"fa fa-user","enve":"fa fa-envelope","action":"fa fa-plus","Adcount":6,"Userc":3,"color":"lightgray"},
+{"Id":3,"Type":"Fund","src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG7j-VtrZnql8mcUEDg_0lJYczwZ1G6OBpbMmyB1tEJhJz5544","company":"Cms Infoystems Limited","Advisor":"Rohith","User":"John(You)","Mescount":4,"UCount":8,"user":"fa fa-user","enve":"fa fa-envelope","action":"fa fa-unlock","Adcount":2,"Userc":4,"color":"lightblue"},	
+{"Id":4,"Type":"Fund","src":"https://img10.deviantart.net/1c30/i/2012/039/1/d/request___itachi_x_reader___by_swiftninja91-d4p14m0.png","company":"Cms Infoystems Limited","Advisor":"Rohith","User":"Michael","Mescount":4,"UCount":8,"user":"fa fa-user","enve":"fa fa-envelope","action":"fa fa-lock","Adcount":8,"Userc":2,"color":"lightgray"},
+{"Id":5,"Type":"HNI","src":"http://img.freepik.com/free-vector/pixel-n-letter-logo_1103-910.jpg?size=338&ext=jpg","company":"Cms Infoystems Limited","Advisor":"Rohith","User":"Bradd ","Mescount":4,"UCount":8,"user":"fa fa-user","enve":"fa fa-envelope","action":"fa fa-plus","Adcount":6,"Userc":3,"color":"lightgray"}
+
+]
+
+}
+

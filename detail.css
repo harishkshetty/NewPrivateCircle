@@ -1,0 +1,21 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+#input_img{
+    position:absolute;
+    bottom:5px;
+    left:15px;
+    width:10px;
+    height:10px;
+}
+.message{
+	border:none;
+	border-bottom:1px solid gray;
+}
+.mypadding{
+
+padding-left: 0px !important;
+padding-right:0px !important;
+}
